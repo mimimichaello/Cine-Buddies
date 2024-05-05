@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'user_profile',
+    'followers',
 ]
 
 MIDDLEWARE = [
