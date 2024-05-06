@@ -16,3 +16,11 @@ class ListFollowerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Follower
         fields = ('subscriber',)
+
+
+class ListFollowingSerializer(serializers.ModelSerializer):
+    subscribed_to = UserByFollowerSerializer(many=False, read_only=True)
+
+    class Meta:
+        model = Follower
+        fields = ('subscribed_to',)
