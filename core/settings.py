@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'djoser',
     'user_profile',
     'followers',
+    'films',
 ]
 
 MIDDLEWARE = [
