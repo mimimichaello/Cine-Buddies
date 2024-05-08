@@ -1,10 +1,13 @@
 from rest_framework import generics, views
-from rest_framework.response import Response
 from rest_framework import permissions
 from rest_framework import status
+from rest_framework.response import Response
+
 from user_profile.models import UserProfile
-from followers.serializers import ListFollowerSerializer, ListFollowingSerializer
 from followers.models import Follower
+from followers.serializers import ListFollowerSerializer, ListFollowingSerializer
+
+from followers.pagination import SubListPagination
 
 
 class ListFollowerView(generics.ListAPIView):
@@ -12,6 +15,7 @@ class ListFollowerView(generics.ListAPIView):
     """
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = ListFollowerSerializer
+    pagination_class = SubListPagination
 
     def get_queryset(self):
         return Follower.objects.filter(subscribed_to=self.request.user)

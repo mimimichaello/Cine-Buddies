@@ -1,10 +1,11 @@
 from rest_framework import serializers
-from films.models import Movie
+import django_filters
+
+from films.models import Film
 
 
-class MovieSerializer(serializers.ModelSerializer):
+class FilmSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Movie
-        fields = (
-            'id', 'title', 'description', 'poster_img_url', 'release_date', 'rating', 'genre', 'external_id',
-            )
+        model = Film
+        fields = '__all__'
+

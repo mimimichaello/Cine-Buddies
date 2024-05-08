@@ -1,9 +1,10 @@
 from django.urls import path
+from films.views import FilmAPIView, FilmListView, FilmFilterView
 
-from films.views import ExternalMovieData
 
 
 urlpatterns = [
-    path('movie/<int:pk>/', ExternalMovieData.as_view(), name='movie'),
-    #path('movies/', ExternalMovieDataList.as_view(), name='movies'),
+    path('<int:pk>/', FilmAPIView.as_view(), name='film'),
+    path('all/', FilmListView.as_view(), name='all-films'),
+    path('filters/', FilmFilterView.as_view(), name='filters'),
 ]

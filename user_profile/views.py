@@ -1,7 +1,10 @@
 from rest_framework import generics
+from rest_framework import permissions
 from user_profile.models import UserProfile
 from user_profile.serializers import ProfileUserSerializer, PublicUserSerializer
-from rest_framework import permissions
+from django_filters.rest_framework import DjangoFilterBackend
+
+from user_profile.pagination import UserListPagination
 
 
 
@@ -12,6 +15,9 @@ class UserListAPIView(generics.ListAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = PublicUserSerializer
     permission_classes = (permissions.AllowAny,)
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['username', 'email', ]
+    pagination_class = UserListPagination
 
 
 class ProfileAPIView(generics.RetrieveUpdateAPIView):
