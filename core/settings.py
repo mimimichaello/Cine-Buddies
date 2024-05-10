@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'user_profile',
     'followers',
     'films',
+    'rooms',
 ]
 
 MIDDLEWARE = [

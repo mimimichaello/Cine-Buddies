@@ -30,6 +30,7 @@ urlpatterns = [
    path('api/v1/users/', include('user_profile.urls')),
    path('api/v1/subscriptions/', include('followers.urls')),
    path('api/v1/film/', include('films.urls')),
+   path('api/v1/room/', include('rooms.urls')),
    path('api/v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
    path('api/v1/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
    path('api/v1/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
